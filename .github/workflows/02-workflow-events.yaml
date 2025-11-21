@@ -1,7 +1,12 @@
 name: 02 - workflow-events.yaml
 
 
-on: [push ,pull_request]
+on: 
+    push:
+    pull_request:
+    schedule: 
+        - cron: '*/5 * * * *'
+    workflow_dispatch:
 
 
 jobs:
@@ -9,10 +14,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show the trigger
-        run: echo "Show the trigger"
-  pf_merged:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo The PR was merged
+        run: echo "Triggered by a(n) ${{ github.event_name}} event."
