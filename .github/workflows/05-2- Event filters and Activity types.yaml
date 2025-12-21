@@ -2,9 +2,9 @@ name: 05 - 2 filters and activity types
 
 on:
     workflow_dispatch:
-        types: [closed]
-        branches: 
-          - main
+#        types: [closed]
+#        branches: 
+#         - main
 
 
 jobs: 
