@@ -46,6 +46,8 @@ jobs:
             - color: red
               size: medium
               shape: triangle
+          exclude:
+            - opacity: 50
               
       steps:
         - name: Placeholder step
