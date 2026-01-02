@@ -1,4 +1,5 @@
 name: 16 - Environments
+run-name: 16 - Environments | Deploy to ${{ inputs.target-env }}
 
 
 on:
@@ -9,7 +10,7 @@ on:
                 description: "Target environment for deployment"
                 default: staging
                 
-run-name: 16 - Environments | Deploy to ${{ inputs.target-env }}
+
 jobs:
     echo:
         runs-on: ubuntu-latest
