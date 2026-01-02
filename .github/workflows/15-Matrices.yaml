@@ -11,7 +11,7 @@ jobs:
         name: ${{ matrix.os }}-${{ matrix.node-version }}
         runs-on: ${{ matrix.os }}
         strategy:
-          fail-fast: false
+          fail-fast: true
           matrix:
             node-version: [18.x, 21.x, 25.x]
             os: [ubuntu-latest, windows-latest]
@@ -42,7 +42,7 @@ jobs:
           size: [small, large]
           shape: [circle, square]
           include:
-            - opacity: 50
+            - opacity: "50"
               color: red
               size: medium
               shape: triangle
