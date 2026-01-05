@@ -1,0 +1,25 @@
+name: 'Setup Node and Cache Dependencies'
+description: 'Sets up Node.js and caches npm dependencies'
+
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: true
+  working-dir:
+    description: 'Working directory for the action'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'npm'
+        cache-dependency-path: ${{ inputs.working-dir }}/package-lock.json
+    
+    - name: Install dependencies
+      run: npm ci
+      shell: bash
+      working-directory: ${{ inputs.working-dir }}
