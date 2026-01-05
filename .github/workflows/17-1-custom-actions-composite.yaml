@@ -7,7 +7,7 @@ on:
     workflow_dispatch:
 
 env:
-    working-directory: 17-custiom-actions/react-app
+    working-directory: 17-custom-actions/react-app
 
 jobs:
     build:
