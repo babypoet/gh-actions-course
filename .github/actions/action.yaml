@@ -10,10 +10,10 @@ inputs:
           description: "The working directory of app"
           default: .
           required: false
-  target-env: 
-          description: "dev or prod. controls if dev dependencies are installed"
-          default: dev
-          required: false
+#  target-env: 
+#          description: "dev or prod. controls if dev dependencies are installed"
+#          default: dev
+#          required: false
 
 runs:
   using: composite
