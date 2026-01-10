@@ -1,18 +1,18 @@
 name: 17 - Custom Actions - Composite
-run-name: 17 - Custom Actions - V1 - Composite | env - ${{ inputs.target-env }}
+run-name: 17 - Custom Actions - V1 - Composite | env - #${{ inputs.target-env }}#
 
 
 
 
 on:
     workflow_dispatch:
-        inputs:
-            target-env:
-                description: 'Target environment: dev or prod'
-                type: choice
-                options:
-                    - dev
-                    - prod
+#        inputs:
+#            target-env:
+#                description: 'Target environment: dev or prod'
+#                type: choice
+#                options:
+#                    - dev
+#                    - prod
 env:
     working-directory: 17-custom-actions/react-app
 
@@ -26,7 +26,7 @@ jobs:
               with:
                   node-version: 24.x
                   working-dir: ${{ env.working-directory }}
-                  target-env: ${{ inputs.target-env }}
+#                  target-env: ${{ inputs.target-env }}
             
             - name: Verify NodeJS installation
               run: npm test
