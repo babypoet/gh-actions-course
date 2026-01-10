@@ -6,13 +6,13 @@ run-name: 17 - Custom Actions - V1 - Composite | env - #${{ inputs.target-env }}
 
 on:
     workflow_dispatch:
-#        inputs:
-#            target-env:
-#                description: 'Target environment: dev or prod'
-#                type: choice
-#                options:
-#                    - dev
-#                    - prod
+        inputs:
+            target-env:
+                description: 'Target environment: dev or prod'
+                type: choice
+                options:
+                    - dev
+                    - prod
 env:
     working-directory: 17-custom-actions/react-app
 
@@ -22,11 +22,11 @@ jobs:
         steps:
             - uses: actions/checkout@v6
             - name: Setup Node and Npm dependencies cache
-              uses: ./.github/actions/composite-cache-deps
+              uses: ./.github/actions/action
               with:
                   node-version: 24.x
                   working-dir: ${{ env.working-directory }}
-#                  target-env: ${{ inputs.target-env }}
+                  target-env: ${{ inputs.target-env }}
             
             - name: Verify NodeJS installation
               run: npm test
