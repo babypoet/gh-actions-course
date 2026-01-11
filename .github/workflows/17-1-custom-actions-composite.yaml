@@ -13,6 +13,15 @@ on:
                 options:
                     - dev
                     - prod
+            node-version:
+                type: choice
+                description: "Node version"
+                options:
+                   - 18.x
+                   - 24.x
+                   - 25.x
+                default: 24.x
+
 env:
     working-directory: 17-custom-actions/react-app
 
@@ -21,7 +30,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6
-            - name: Setup Node and Npm dependencies cache
+            - name: Setup Node and Npm dependencies cache 
               uses: ./.github/actions/composite-cache-deps
               with:
                   node-version: 24.x
