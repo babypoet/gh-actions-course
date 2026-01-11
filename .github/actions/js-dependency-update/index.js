@@ -12,6 +12,7 @@ async function run() {
   const ghToken = core.getInput('gh-token');
   const workingDir = core.getInput('working-directory');
   const debug = core.getBooleanInput('debug');
+  debug = debugInput.toLowerCase() === 'true';
 
   core.setSecret(ghToken);
 
