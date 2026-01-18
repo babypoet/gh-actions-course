@@ -32,12 +32,12 @@ jobs:
               id: build
               run: |
                 echo "Building project in directory:"
-                echo "Build-status = success" >> $GITHUB_OUTPUT"
+                echo "Build-status = success" >> "$GITHUB_OUTPUT"
             - name: Deploy
               id: deploy
               run: |
                 echo "Deploying build using ${{ inputs.target-directory }}"
-                echo "url=https://google.com" >> $GITHUB_OUTPUT"
+                echo "url=https://google.com" >> "$GITHUB_OUTPUT"
  
     
             
