@@ -37,7 +37,7 @@ jobs:
               id: deploy
               run: |
                 echo "Deploying build using ${{ inputs.target-directory }}"
-                echo "url = https://example.com/deployed-app" >> $GITHUB_OUTPUT"
+                echo "url=https://google.com" >> $GITHUB_OUTPUT"
  
     
             
