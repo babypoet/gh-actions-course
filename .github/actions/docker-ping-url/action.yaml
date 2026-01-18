@@ -4,7 +4,7 @@ description: "Ping a specified URL until max trials is reached. If result is not
 
 runs:
   using: docker
-  image: dockerfile
+  image: Dockerfile
   
 
 inputs:
