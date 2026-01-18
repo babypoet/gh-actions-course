@@ -10,7 +10,7 @@ jobs:
         with:
           target-directory: placeholder-directory
     e2e-tests:
-        uses: babypoet/Cypress-E2E-testing-project/.github/workflows/cypress-e2e-testing.yaml@main
+        uses: babypoet/Cypress-E2E-testing-project/blob/main/.github/workflows/e2e.yaml
         
 
     
