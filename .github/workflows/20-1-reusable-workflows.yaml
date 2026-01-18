@@ -1,0 +1,19 @@
+name: 20.1 - reusable-workflows
+
+on: 
+  workflow_dispatch:
+
+
+jobs:
+    deploy:
+        uses: ./.github/workflows/20-reusable-workflows.yaml
+        with:
+          target-directory: placeholder-directory
+    print-outputs:
+        needs: deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Outputs
+              run: |
+                echo "Build Status: ${{ needs.deploy.outputs.build-status }}"
+                echo "Deployed URL: ${{ needs.deploy.outputs.url }}"
