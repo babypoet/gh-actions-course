@@ -11,7 +11,8 @@ RUN pythhon3 -V
 RUN pip install --no-cache-dir -r requirements.txt
 
 #Copy wvwrything into current directrory
-COPY. .
+#COPY --from=builder /install /usr/local
+COPY . .
 
 
 
