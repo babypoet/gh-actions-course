@@ -82,8 +82,8 @@ async function run() {
       repo: github.context.repo.repo,
       title: 'update js dependencies',
       body: 'This PR updates NPM packages',
-      head: baseBranch,
-      head: targetBranch
+      head: targetBranch,
+      head: baseBranch
     })
      }  catch(e){
         core.error('[js-dependency-update] : something went wrong.');
