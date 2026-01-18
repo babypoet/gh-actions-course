@@ -83,7 +83,7 @@ async function run() {
       title: 'update js dependencies',
       body: 'This PR updates NPM packages',
       head: targetBranch,
-      head: baseBranch
+      base: baseBranch
     })
      }  catch(e){
         core.error('[js-dependency-update] : something went wrong.');
