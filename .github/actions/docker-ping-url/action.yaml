@@ -19,3 +19,7 @@ inputs:
     required: false
     description: Delay in seconds between trails.
     default: '10'
+
+outputs:
+  website_status:
+    description: Wether the URL is reachable.

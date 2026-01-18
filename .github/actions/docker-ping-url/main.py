@@ -4,8 +4,7 @@ import time
 
 
 def ping_url(url, delay, max_trials):
-    trials  = 0
-
+    trials = 0
     while trials < max_trials:
         try:
             response = requests.get(url)
@@ -18,9 +17,13 @@ def ping_url(url, delay, max_trials):
             trials += 1
         except requests.exceptions.MissingSchema:
             print(f"Invalid URL: {url}. Please provide a valid URL.")
-            return False  
-        
+            return False
+    
     return False
+
+def set_output(file_path, key, value):
+    with open(file_path, 'a') as file:
+        print(f'{key}={value}', file=file)
 
 def run():
     website_url = os.getenv("INPUT_URL")
@@ -28,9 +31,11 @@ def run():
     max_trials = int(os.getenv("INPUT_MAX_TRIALS"))
 
 
-    website_reacheable = ping_url(website_url, delay, max_trials)
+    website_reachable = ping_url(website_url, delay, max_trials)
     
-    if not website_reacheable:
+    set_output(os.getenv("GITHUB_OUTPUT"), "url-reachable", website_reachable)
+
+    if not website_reachable:
         raise Exception(f"Website {website_url} is not reachable.")
     print(f"Website {website_url} is reachable.")
 
