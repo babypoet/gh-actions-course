@@ -31,11 +31,16 @@ jobs:
         steps:
             - uses: actions/checkout@v6
             - name: Setup Node and Npm dependencies cache 
+              id: setup-deps
               uses: ./.github/actions/composite-cache-deps
               with:
                   node-version: 24.x
                   working-dir: ${{ env.working-directory }}
                   target-env: ${{ inputs.target-env }}
+            - name: Print installed deps info
+              run: |  
+                echo "Installed Deps: ${{ steps.setup-deps.outputs.installed-deps }}"
+
             
             - name: Verify NodeJS installation
               run: npm test

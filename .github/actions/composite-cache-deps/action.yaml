@@ -1,6 +1,8 @@
 name: Cache Node NPM dependencies
 description: "This action allows caching of both Node and NPM dependencies based on a package-lock.json file"
 
+
+
 inputs:
   node-version:
     description: NodeJS version to use
@@ -14,6 +16,13 @@ inputs:
           description: "dev or prod. controls if dev dependencies are installed"
           default: dev
           required: false
+
+
+outputs:
+  installed-deps:
+    description: "Whether dependencies were installed or not"
+    value: ${{ steps.cache.outputs.cache-hit != 'true' }}
+
 
 runs:
   using: composite
@@ -34,6 +43,7 @@ runs:
       run: ${{ inputs.target-env == 'dev' && 'npm ci' || 'npm ci --omit=dev' }}
       shell: bash
       working-directory: ${{ inputs.working-dir }}
-
+    
+    
       
           
