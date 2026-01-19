@@ -1,0 +1,14 @@
+name: Safe Title Check
+description: Safely checks if the pull request Title
+
+
+
+inputs:
+  pr-title:
+    description: PR Title
+    required: true
+
+
+runs:
+  using: node24
+  main: index.js

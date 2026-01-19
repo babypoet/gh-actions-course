@@ -33,3 +33,13 @@ jobs:
                 echo "Non-feature PR detected."
                 exit 1
                 fi
+    js-safer-pr:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v6
+            - name: Check PR Title
+              uses: ./.github/actions/security-safe-input
+              with: 
+                pr-title: ${{ github.event.pull_request.title }}
+             
