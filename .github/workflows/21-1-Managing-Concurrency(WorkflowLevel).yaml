@@ -1,4 +1,4 @@
-name: 21 - Managing Concurrency
+name: 21.1 - Managing Concurrency at Workflow Level
 
 on:
     workflow_dispatch:
